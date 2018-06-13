@@ -1,0 +1,54 @@
+<!--pages/homePage/homePage.wxml-->
+<view>数据绑定</view>
+<text id="item-{{text}}">{{text + " " + text}}</text>
+<checkbox checked="{{true}}" hidden="{{false}}"></checkbox>
+<view>列表</view>
+<view wx:for="{{array}}"  
+      wx:for-item="i"
+      wx:for-index="idx"
+      wx:key="{{i}}">
+      第{{index}}{{idx}}个: {{item}}{{i}}
+</view>
+<!-- <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+    <view wx:if="{{i <= j}}">
+      {{i}} * {{j}} = {{i * j}}
+    </view>
+  </view>
+</view> -->
+<view>条件渲染</view>
+<view wx:if="{{view == 'webView'}}">WebView</view>
+<view wx:elif="{{view == 'app'}}">app</view>
+<view wx:else="{{view == 'ohter'}}">else</view>
+<view>模版</view>
+<template name="introduce">
+  <view>
+    Hellow, My name is {{name}}.
+  </view>
+</template>
+
+<template is="introduce" data="{{...name}}"></template>
+<template is="introduce" data="{{name:'YNB'}}"></template>
+<view>事件</view>
+<view id="outer" data-name-age="NN" 
+      capture-bind:tap="viewTap"
+      bind:touchmove="viewTouchMove"
+      bindtouchstart="viewTouchStart"> 
+      click me
+      <view id="inner"
+      bind:tap="viewTap"
+      catch:touchmove="viewTouchMove"
+      bindtouchstart="viewTouchStart2"
+      >
+        innerView click
+      </view> 
+</view>
+
+
+<!-- 
+import 有作用域的概念，即只会 import 目标文件中定义的 template，而不会 import 目标文件 import 的 template。
+<import src="item.wxml"/>
+<template is="item" data="{{text: 'forbar'}}"/> 
+include 可以将目标文件除了 <template/> <wxs/> 外的整个代码引入，相当于是拷贝到 include 位置，如：
+<include src="header.wxml"/>
+-->

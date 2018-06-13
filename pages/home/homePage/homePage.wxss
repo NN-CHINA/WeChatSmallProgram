@@ -1,0 +1,5 @@
+/* pages/homePage/homePage.wxss */
+
+.cycleScrollView {
+  background-color: '#f00'
+}

@@ -1,0 +1,19 @@
+<!--pages/homePage/homePage.wxml-->
+<swiper class="cycleScrollView"
+        indicator-dots ='true'
+        indicator-color = "rgba(0, 0, 0, 0.3)"
+        indicator-active-color = "rgba(255, 255, 255, 0.7)"
+        autoplay='true'
+        current="0"
+        interval="4000"
+        circular='true'
+        bindchange='cycleScrollViewDidScroll'
+>
+  <block wx:for="{{images}}">
+    <swiper-item 
+        bindtap="cycleScrollViewClicked"
+    >
+      <image src="{{item}}" width="320" height="180"></image>
+    </swiper-item>
+  </block>
+</swiper>

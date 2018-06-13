@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/home/homePage/homePage",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundColor": "#EEE",
+    "backgroundTextStyle":"dark",
+    "enablePullDownRefresh":true,
+    "onReachBottomDistance": 50,
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "❤Hello World❤",
+    "navigationBarTextStyle":"white",
+    "navigationStyle":"default"
+  },
+  "tabBar":{
+    "list": [
+      {
+        "text":"首页",
+        "pagePath":"pages/home/homePage/homePage",
+        "iconPath":"source/homePage/tab_homePage_nor.png",
+        "selectedIconPath":"source/homePage/tab_homePage_sel.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/index/index",
+        "iconPath":"source/homePage/tab_mine_nor.png",
+        "selectedIconPath":"source/homePage/tab_mine_sel.png"
+      }
+    ],
+    "color": "#8a8a8a",
+    "selectedColor": "#484a94",
+    "backgroundColor": "#FFF",
+    "borderStyle":"black",
+    "position":"bottom"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "downloadFile": 20000,
+    "uploadFile":20000
+  },
+  "debug":true,
+  "default": {
+    "theme": "#484a94"
+  }
+}
