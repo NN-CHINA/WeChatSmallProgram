@@ -32,17 +32,26 @@ App({
         }
       }
     })
+    //获取系统信息
+    wx.getSystemInfo({
+      success: function (systemRes) {
+      }
+    })
+
+    this.globalData.screenW = 100
     console.log("on launch")
     console.log(info)
   },
   onShow: function() {
     console.log("on show")
+   
   },
   onHide: function() {
     console.log("on Hide")
   },
-  onError: function() {
+  onError: function(error) {
     console.log("on Error")
+    console.log(error)
   },
   onPageNotFound: function (info) {
     console.log("on page not found")
@@ -52,6 +61,8 @@ App({
     }) // 如果是 tabbar 页面，请使用 wx.switchTab
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    screenW: null,
+    screenHeight:100
   }
 })

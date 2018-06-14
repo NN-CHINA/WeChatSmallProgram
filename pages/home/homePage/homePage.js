@@ -1,8 +1,22 @@
 var util = require("../../../utils/util.js")
+var app = getApp()
 
 Page({
   "onLoad": function (options) {
-
+    console.log(app.globalData)
+      wx.request({
+        url: 'https://www.sojson.com/open/api/weather/json.shtml',
+        method:'GET',
+        header: {},
+        data:{'city':'广州'},
+        dataType:'json',
+        success:function(success) {
+          console.log(success)
+        },
+        fail: function (error) {
+          console.log(error)
+        }
+      })
   },
   "onShow": function () {
 

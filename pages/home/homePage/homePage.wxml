@@ -13,7 +13,7 @@
     <swiper-item 
         bindtap="cycleScrollViewClicked"
     >
-      <image src="{{item}}" width="320" height="180"></image>
+      <image src="{{item}}" width="{{app.globalData.screenWidth}}" height="{{app.globalData.screenWidth * 9 / 16}}"></image>
     </swiper-item>
   </block>
 </swiper>
