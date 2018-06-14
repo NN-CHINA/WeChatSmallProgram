@@ -32,13 +32,22 @@ App({
         }
       }
     })
+
     //获取系统信息
     wx.getSystemInfo({
-      success: function (systemRes) {
+      success: res => {
+        console.log(this)
+        this.globalData.screenW = res.screenWidth
+      }
+    })
+    
+    wx.getSystemInfo({
+      success: function(res) {
+        //函数体中，指代函数自身
+        console.log(this)
       }
     })
 
-    this.globalData.screenW = 100
     console.log("on launch")
     console.log(info)
   },

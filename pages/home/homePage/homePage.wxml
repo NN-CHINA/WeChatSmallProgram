@@ -8,12 +8,15 @@
         interval="4000"
         circular='true'
         bindchange='cycleScrollViewDidScroll'
+        style="height:{{width * 9 / 16}}px; width:{{width}}px"
 >
-  <block wx:for="{{images}}">
+  <block wx:for="{{images}}"
+            wx:key="{{item}}"
+  >
     <swiper-item 
         bindtap="cycleScrollViewClicked"
     >
-      <image src="{{item}}" width="{{app.globalData.screenWidth}}" height="{{app.globalData.screenWidth * 9 / 16}}"></image>
+      <image src="{{item}}" style="height:{{width * 9 / 16}}px; width:{{width}}px"></image>
     </swiper-item>
   </block>
 </swiper>
