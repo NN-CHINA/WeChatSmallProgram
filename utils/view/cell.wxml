@@ -1,0 +1,6 @@
+<template name="homePageCell">
+  <view class="cell">
+    <image src="{{imgUrl}}" class="cellImage"></image>
+    <view class="cellBottomLine"></view>
+  </view>
+</template>

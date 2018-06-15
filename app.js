@@ -44,12 +44,12 @@ App({
     wx.getSystemInfo({
       success: function(res) {
         //函数体中，指代函数自身
-        console.log(this)
+        // console.log(this)
       }
     })
 
-    console.log("on launch")
-    console.log(info)
+    // console.log("on launch")
+    // console.log(info)
   },
   onShow: function() {
     console.log("on show")
@@ -72,6 +72,7 @@ App({
   globalData: {
     userInfo: null,
     screenW: null,
-    screenHeight:100
-  }
+  },
+  serverRoot: 'http://zhutou.zhianinvest.com',
+  themeColor:'#484a94'
 })

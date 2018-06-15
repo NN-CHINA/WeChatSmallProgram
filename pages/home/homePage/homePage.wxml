@@ -1,22 +1,37 @@
 <!--pages/homePage/homePage.wxml-->
-<swiper class="cycleScrollView"
-        indicator-dots ='true'
-        indicator-color = "rgba(0, 0, 0, 0.3)"
-        indicator-active-color = "rgba(255, 255, 255, 0.7)"
-        autoplay='true'
-        current="0"
-        interval="4000"
-        circular='true'
-        bindchange='cycleScrollViewDidScroll'
-        style="height:{{width * 9 / 16}}px; width:{{width}}px"
->
-  <block wx:for="{{images}}"
-            wx:key="{{item}}"
+<import src="../../../utils/view/cell.wxml"/>
+<view class='bg'>
+   <swiper class="cycleScrollView"
+          indicator-dots ='true'
+          indicator-color = "rgba(0, 0, 0, 0.3)"
+          indicator-active-color = "rgba(255, 255, 255, 0.7)"
+          autoplay='true'
+          current="0"
+          interval="4000"
+          circular='true'
+          bindchange='cycleScrollViewDidScroll'
+          style="height:{{width * 9 / 16}}px; width:{{width}}px"
   >
-    <swiper-item 
-        bindtap="cycleScrollViewClicked"
+    <block wx:for="{{images}}"
+              wx:key="{{item.pid}}"
     >
-      <image src="{{item}}" style="height:{{width * 9 / 16}}px; width:{{width}}px"></image>
-    </swiper-item>
+      <swiper-item 
+          bindtap="cycleScrollViewClicked"
+      >
+        <image src="{{item.pic_path}}" style="height:{{width * 9 / 16}}px; width:{{width}}px"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="sectionHeader">
+    <div class='sectionHeaderContent'>
+      <image src='../../../source/homePage/homePageHeader1.png' class='sectionHeaderImage'></image>
+      <view class='sectionHeaderTitle' style="color:{{theme}}">热销</view>
+    </div>
+    <view class='bottomLine'></view>
+  </view>
+  <block wx:for="{{hotProjectList}}"
+         wx:key="{{hotProjectList.id}}"
+  >
+    <template is="homePageCell" data="{{imgUrl:item.cover_img}}"/>
   </block>
-</swiper>
+</view>

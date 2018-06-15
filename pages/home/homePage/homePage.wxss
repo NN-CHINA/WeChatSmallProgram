@@ -1,5 +1,60 @@
 /* pages/homePage/homePage.wxss */
+@import '../../index/index.wxss';
 
+.bg {
+  background-color: #F5F5F5;
+}
 .cycleScrollView {
-  background-color: '#f00'
+  background-color: '#fff'
+}
+
+.sectionHeader {
+  background-color: #fff;  
+  color: #f00;
+  margin-top:10px;
+  height: 40px;
+}
+
+.sectionHeaderContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 39.5px;
+}
+
+.sectionHeaderImage {
+  height: 28px;
+  width: 28px;
+}
+
+.sectionHeaderTitle {
+  color: #f00;
+}
+
+.bottomLine {
+  height: 0.5px;
+  background-color: #ddd;
+}
+
+.cell {
+  height: 120.5px;
+  background-color: #fff;
+}
+
+.cellContainer {
+  background-color: #f00;
+}
+
+.cellImage {
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+  vertical-align:top;
+}
+
+.cellBottomLine {
+  height: 0.5px;
+  margin-left: 10px;
+  background-color: #ddd;
 }

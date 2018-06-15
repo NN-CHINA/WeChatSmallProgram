@@ -1,4 +1,5 @@
 var util = require("../../../utils/util.js")
+var request = require('../../../utils/request.js')
 var app = getApp()
 
 Page({
@@ -6,19 +7,7 @@ Page({
     this.setData({
       width: app.globalData.screenW
     })
-      wx.request({
-        url: 'https://www.sojson.com/open/api/weather/json.shtml',
-        method:'GET',
-        header: {},
-        data:{'city':'广州'},
-        dataType:'json',
-        success:function(success) {
-          console.log(success)
-        },
-        fail: function (error) {
-          console.log(error)
-        }
-      })
+    this.loadData()
   },
   "onShow": function () {
 
@@ -33,7 +22,7 @@ Page({
 
   },
   "onPullDownRefresh": function () {
-    // wx.stopPullDownRefresh()
+    this.loadData()
   },
   "onReachBottom": function () {
 
@@ -51,17 +40,49 @@ Page({
     console.log(item)
   },
   data: {
-    images: [
-      "http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg",
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    width: null
+    images: null,
+    hotProjectList: null,
+    width: null,
+    dataSource: null,
+    theme:app.themeColor
   },
   cycleScrollViewDidScroll: function (event) {
     // console.log(event)
   },
   cycleScrollViewClicked: function (event) {
     console.log(event)
+  },
+  loadData: function() {
+      request.Post({
+        relativePath: '/app/index/index',
+        parameters: {'region_name': '江门'},
+        success:(res) => {
+          this.setData({
+            images: res.adList,
+            hotProjectList: res.hotProjectList
+          })
+        },
+        complete:(res) => {
+          wx.stopPullDownRefresh()
+        }
+      })
   }
 })
+
+
+// request.POST('/app/index/index', { 'region_name': '江门' },
+    //   (success) => {
+    //     this.setData({
+    //       images: success.adList,
+    //       dataSource: success
+    //     })
+    //   },
+    //   (waring) => {
+
+    //   },
+    //   (failure) => {
+
+    //   },
+    //   (complete) => {
+    //     wx.stopPullDownRefresh()
+    //   })
